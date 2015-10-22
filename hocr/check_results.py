@@ -44,4 +44,4 @@ class check_coverage:
 		'''
 		for x in self.results.items():
 			if x[1][0] >= self.min_percent:
-				os.rename('{0}/{1}'.format(self.orig, x[0]), '{0}/{1}'.format(self.dest, x[0]))
+				os.rename(x[0], '{0}/{1}'.format(self.dest, os.path.basename(x[0])))
