@@ -33,7 +33,10 @@ class check_coverage:
 						l = f.read().split('\n')[2].split()
 					except IndexError:
 						self.results[d] = [0, 'No Results']
-				self.results[d] = (float(l[0].split('/')[0])/float(l[0].split('/')[1]), l)
+				try:
+					self.results[d] = (float(l[0].split('/')[0])/float(l[0].split('/')[1]), l)
+				except ValueError:
+					print(d, l)
 			except IndexError:
 				print('No .out file in {}'.format(d))
 
